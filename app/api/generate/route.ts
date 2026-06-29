@@ -1,4 +1,4 @@
-import { anthropic } from "@ai-sdk/anthropic";
+import { createGoogleGenerativeAI } from "@ai-sdk/google";
 import { generateObject } from "ai";
 import { z } from "zod";
 import { computeRoi, formatRupiah, formatMonths, type RoiInput } from "@/lib/roi";
@@ -61,12 +61,14 @@ export async function POST(req: Request) {
   };
   const roi = computeRoi(roiInput);
 
-  if (!process.env.ANTHROPIC_API_KEY) {
+  const apiKey = process.env.GEMINI_API_KEY || process.env.GOOGLE_GENERATIVE_AI_API_KEY;
+  if (!apiKey) {
     return Response.json(
-      { error: "ANTHROPIC_API_KEY belum dipasang. ROI tetap bisa dihitung, tapi proposal butuh API key." },
+      { error: "GEMINI_API_KEY belum dipasang. ROI tetap bisa dihitung, tapi proposal butuh API key." },
       { status: 400 },
     );
   }
+  const google = createGoogleGenerativeAI({ apiKey });
 
   const vendorName = String(body.vendorName || "Penyedia jasa").trim();
   const clientName = String(body.clientName || "calon klien").trim();
@@ -112,7 +114,7 @@ export async function POST(req: Request) {
 
   try {
     const { object } = await generateObject({
-      model: anthropic(process.env.MODEL || "claude-sonnet-4-6"),
+      model: google(process.env.MODEL || "gemini-2.5-flash"),
       schema: ProposalSchema,
       system,
       prompt,

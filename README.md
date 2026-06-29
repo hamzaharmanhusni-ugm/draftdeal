@@ -12,26 +12,26 @@ Angka uang tidak dikarang model. Semua hitungan ROI ada di [`lib/roi.ts`](lib/ro
 
 ```bash
 npm install
-cp .env.example .env.local   # lalu isi ANTHROPIC_API_KEY
+cp .env.example .env.local   # lalu isi GEMINI_API_KEY
 npm run check                # self-check ROI
 npm run dev                  # http://localhost:3000
 ```
 
-ROI live jalan tanpa API key. Tombol "Buat Proposal" butuh `ANTHROPIC_API_KEY`.
+ROI live jalan tanpa API key. Tombol "Buat Proposal" butuh `GEMINI_API_KEY`.
 
 ## Environment
 
 | Var | Wajib | Default |
 |---|---|---|
-| `ANTHROPIC_API_KEY` | ya (untuk generate) | - |
-| `MODEL` | tidak | `claude-sonnet-4-6` |
+| `GEMINI_API_KEY` | ya (untuk generate) | - |
+| `MODEL` | tidak | `gemini-2.5-flash` |
 
 ## Deploy
 
 App ada di root repo ini.
 
-- **Replit:** import repo ini dari GitHub. File `.replit` sudah disiapkan (Autoscale, Node 22, port 3000 -> 80). Pasang secret `ANTHROPIC_API_KEY` di DUA tempat: pane Secrets (dev) dan pane Deployments (live).
-- **Vercel:** import repo, framework Next.js terdeteksi otomatis, set env `ANTHROPIC_API_KEY` di dashboard.
+- **Replit:** import repo ini dari GitHub. File `.replit` sudah disiapkan (Autoscale, Node 22, port 3000 -> 80). Pasang secret `GEMINI_API_KEY` di DUA tempat: pane Secrets (dev) dan pane Deployments (live).
+- **Vercel:** import repo, framework Next.js terdeteksi otomatis, set env `GEMINI_API_KEY` di dashboard.
 
 ## Skrip
 

@@ -9,7 +9,7 @@
     "check": "tsx lib/roi.check.ts"
   },
   "dependencies": {
-    "@ai-sdk/anthropic": "^2",
+    "@ai-sdk/google": "^2.0.76",
     "ai": "^5",
     "next": "^15",
     "react": "^19",
