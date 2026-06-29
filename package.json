@@ -1,0 +1,26 @@
+{
+  "name": "draftdeal",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start -H 0.0.0.0",
+    "check": "tsx lib/roi.check.ts"
+  },
+  "dependencies": {
+    "@ai-sdk/anthropic": "^2",
+    "ai": "^5",
+    "next": "^15",
+    "react": "^19",
+    "react-dom": "^19",
+    "zod": "^3"
+  },
+  "devDependencies": {
+    "@types/node": "^22",
+    "@types/react": "^19",
+    "@types/react-dom": "^19",
+    "tsx": "^4",
+    "typescript": "^5"
+  }
+}
