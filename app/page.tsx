@@ -127,7 +127,7 @@ export default function Page() {
         <section className="form-col">
           <div className="card">
             <h2>Isi data discovery</h2>
-            <p className="hint">Isi seadanya hasil ngobrol dengan calon klien. ROI dihitung langsung di bawah.</p>
+            <p className="hint">Form ini sudah berisi contoh (PT Roti Senja). Ganti dengan data klienmu, lalu klik Buat Proposal. ROI terhitung otomatis di kanan saat kamu mengetik.</p>
 
             <div className="group-title">Tentang klien</div>
             <TextField label="Nama penyedia jasa (kamu)" value={inp.vendorName} onChange={set("vendorName")} />
